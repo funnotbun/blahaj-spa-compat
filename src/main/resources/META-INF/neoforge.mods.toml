@@ -1,0 +1,42 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "blahaj_spa_compat"
+version = "${mod_version}"
+displayName = "Blåhaj × SmoothPlayerAnimations Compatibility"
+authors = "funnotbun"
+description = '''Preserves Red's Blåhaj cuddle arm pose while SmoothPlayerAnimations animates the player.'''
+displayTest = "IGNORE_ALL_VERSION"
+
+[[dependencies.blahaj_spa_compat]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.125,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.blahaj_spa_compat]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.blahaj_spa_compat]]
+modId = "blahaj"
+type = "required"
+versionRange = "[1.0.0,1.0.1)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.blahaj_spa_compat]]
+modId = "smoothplayeranimations"
+type = "required"
+versionRange = "[1.0.4,1.0.5)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[mixins]]
+config = "blahaj_spa_compat.mixins.json"

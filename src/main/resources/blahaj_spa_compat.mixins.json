@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "funnotbun.patches.blahaj.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "PlayerStateMachineMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

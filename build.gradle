@@ -1,0 +1,52 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.103'
+}
+
+group = 'funnotbun.patches.blahaj'
+version = mod_version
+
+base {
+    archivesName = 'blahaj-spa-compat-neoforge-1.21.1'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter { includeGroup 'maven.modrinth' }
+    }
+}
+
+neoForge {
+    version = neoforge_version
+    mods {
+        blahaj_spa_compat {
+            sourceSet(sourceSets.main)
+        }
+    }
+    runs {
+        client { client() }
+    }
+}
+
+dependencies {
+    compileOnly "maven.modrinth:xC5B7AZB:${blahaj_version}"
+    compileOnly "maven.modrinth:ZdlGpqTS:${spa_version}"
+}
+
+tasks.named('processResources') {
+    inputs.property 'mod_version', mod_version
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand mod_version: mod_version
+    }
+}
+
+tasks.named('jar') {
+    from('LICENSE')
+}
